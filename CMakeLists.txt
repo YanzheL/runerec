@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.5)
-project(handwriting_flamewords_module_2)
+project(runerec)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(USE_REMOTE OFF)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 set(USE_CUDA OFF)
-set(USE_CAFFE ON)
+set(USE_CAFFE OFF)
 find_package(OpenCV REQUIRED)
 #find_package(Eigen3  REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
@@ -15,18 +15,8 @@ set(ADD_SRC main.cc
         Classifiers/Classifier.h
         Utils.cc
         Utils.h
-        Splitters/RuneSplitter.cc
-        Splitters/RuneSplitter.h
-        Splitters/FireRuneSplitter.cc
-        Splitters/FireRuneSplitter.h
-        Splitters/PureRuneSplitter.cc
-        Splitters/PureRuneSplitter.h
         Classifiers/common.h
-        Splitters/LedRuneSplitter.cc
-        Splitters/LedRuneSplitter.h
-        Classifiers/LocalTFDigitClassifier.h
         Classifiers/LocalOpenCVDnnDigitClassifier.cc
-        Classifiers/LocalOpenCVDnnDigitClassifier.h
         )
 
 set(ALL_LIB pthread ${Boost_LIBRARIES} ${OpenCV_LIBRARIES})
@@ -46,6 +36,14 @@ if (USE_CUDA)
             ${ADD_SRC}
             Classifiers/LocalTensorRTDigitClassifier.cc
             Classifiers/LocalTensorRTDigitClassifier.h
+            Splitters/LedRuneSplitter.cc
+            Splitters/LedRuneSplitter.h
+            Splitters/FireRuneSplitter.cc
+            Splitters/FireRuneSplitter.h
+            Splitters/RuneSplitter.cc
+            Splitters/RuneSplitter.h
+            Splitters/PureRuneSplitter.cc
+            Splitters/PureRuneSplitter.h
     )
     include_directories(/usr/include/x86_64-linux-gnu)
     include_directories(${CUDA_INCLUDE_DIRS})
@@ -70,6 +68,41 @@ elseif (USE_REMOTE)
     set(ADD_SRC ${PROTO_SRCS} ${PROTO_HDRS} ${ADD_SRC} Communicator.cpp Communicator.h)
     set(ALL_LIB ${Protobuf_LIBRARIES} ${ALL_LIB})
 endif ()
-add_executable(handwriting_flamewords_module ${ADD_SRC})
-target_link_libraries(handwriting_flamewords_module ${ALL_LIB})
+#add_executable(runerec ${ADD_SRC})
+#target_link_libraries(runerec ${ALL_LIB})
+
+
+set(TEST_SRC
+        tests/classifier_test.cc
+        Utils.cc
+        Utils.h
+        Classifiers/Classifier.cc
+        Classifiers/Classifier.h
+        Classifiers/common.h
+        Classifiers/LocalOpenCVDnnDigitClassifier.cc
+        )
+
+if(USE_CUDA)
+    set(
+            TEST_SRC
+            ${TEST_SRC}
+            Classifiers/LocalTensorRTDigitClassifier.cc
+            Classifiers/LocalTensorRTDigitClassifier.h
+            Splitters/LedRuneSplitter.cc
+            Splitters/LedRuneSplitter.h
+            Splitters/FireRuneSplitter.cc
+            Splitters/FireRuneSplitter.h
+            Splitters/RuneSplitter.cc
+            Splitters/RuneSplitter.h
+            Splitters/PureRuneSplitter.cc
+            Splitters/PureRuneSplitter.h
+    )
+endif()
+
+find_package(Boost REQUIRED system filesystem)
+
+ADD_SUBDIRECTORY(googletest)
+add_executable(classifier_test ${TEST_SRC} tests/classifier_test.cc)
+target_link_libraries(classifier_test gtest gmock ${ALL_LIB} ${Boost_LIBRARIES})
+TARGET_COMPILE_DEFINITIONS(classifier_test PRIVATE gtest_disable_pthreads=ON)
 

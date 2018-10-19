@@ -2,25 +2,21 @@
 // Created by LI YANZHE on 18-4-13.
 //
 
-#include <thread>
-#include "Classifiers/Classifier.h"
-#include "Splitters/RuneSplitter.h"
-
-#define TEST_SPLITTER
-//#define TEST_DETECTOR
+//#define TEST_SPLITTER
+#define TEST_DETECTOR
 //#define TEST_LED
 //#define TEST_CAR
-using namespace cv;
-using namespace std;
+
 
 #ifdef TEST_SPLITTER
 
 #include "Splitters/RuneSplitter.h"
 #include "Splitters/FireRuneSplitter.h"
+#include "Splitters/PureRuneSplitter.h"
 
 int main() {
     Mat frame;
-    VideoCapture capture("/home/nvidia/CLionProjects/runerecQt/1_cut.avi");
+    VideoCapture capture("/home/trinity/CLionProjects/1.avi");
     if (!capture.isOpened())
         cout << "fail to open!" << endl;
 //    RuneDetector detector;
@@ -28,8 +24,8 @@ int main() {
     while (capture.read(frame)) {
 //        imshow("frame",frame);
 //        resize(frame,frame,Size(640,480));
-        RuneSplitter *splitter = new FireRuneSplitter(130, 60);
-//        RuneSplitter* splitter=new PureRuneSplitter(130,60);
+//        RuneSplitter *splitter = new FireRuneSplitter(130, 60);
+        RuneSplitter* splitter=new PureRuneSplitter(130,60);
         vector<Mat> blocks;
         double startTime = (double) cvGetTickCount();
         std::vector<cv::RotatedRect> sudoku_rects;
@@ -50,38 +46,46 @@ int main() {
 
 #ifdef TEST_DETECTOR
 
-//#include "RuneSplitter.h"
-#include "RuneDetector.hpp"
+#include <thread>
+#include "Classifiers/Classifier.h"
+#include "Splitters/RuneSplitter.h"
+#include "Classifiers/LocalTFDigitClassifier.h"
+#include "Classifiers/LocalCaffeDigitClassifier.h"
+
+using namespace cv;
+using namespace std;
 
 int main() {
+    DigitClassifier *clsf, *ledClsf;
+#ifdef USE_CUDA
+    ledClsf = DigitClassifier::getInstance<LocalTensorRTDigitClassifier>("LocalTensorRTDigitClassifier",
+                                                                         "../../models/led/model.uff");
+    clsf = DigitClassifier::getInstance<LocalTensorRTDigitClassifier>("LocalTensorRTDigitClassifier",
+                                                                      "../../models/mnist/model.uff");
+//    clsf = DigitClassifier::getInstance<LocalTFDigitClassifier>("LocalTFDigitClassifier",
+//                                                                "../../models/mnist/model.pb");
+//    fireClsf = DigitClassifier::getInstance<LocalTensorRTDigitClassifier>("LocalTensorRTDigitClassifier",
+//                                                                          "../../models/fire/model.uff");
+#endif
+
+#ifdef USE_CAFFE
+    clsf = DigitClassifier::getInstance<LocalCaffeDigitClassifier>("LocalCaffeDigitClassifier",
+                                                                   "../../models/caffe");
+#else
+    clsf = DigitClassifier::getInstance<LocalTFDigitClassifier>("LocalTFDigitClassifier",
+                                                                "../../models/mnist/model.pb");
+#endif
+
     Mat frame;
-//    adjustExposure();
-    VideoCapture capture("/home/nvidia/CLionProjects/runerecQt/small.avi");
-//    capture.set(CV_CAP_PROP_EXPOSURE,164);
-    if (!capture.isOpened()) {
-        cout << "fail to open!" << endl;
-        exit(1);
-    }
-
-    RuneDetector detector;
-
-    while (capture.read(frame)) {
-//        Rect r(Point2f(200, 0), Point2f(1640, 1080));
-//        frame = frame(r);
-//        resize(frame, frame, Size(640, 480));
-        std::vector<cv::RotatedRect> sudoku_rects;
-        int goal = 1;
+    frame = imread("../f_num/f_2.jpg", 0);
+    threshold(frame, frame, 127, 1, THRESH_BINARY_INV);
+    while (true) {
+        int dst;
         double startTime = (double) cvGetTickCount();
-        int pos = detector.getTarget(frame, &goal, RuneDetector::RUNE_SMALL);
+        clsf->recognize({frame}, &dst);
         double endTime = (double) cvGetTickCount();
-        if (pos != -1) {
-            rectangle(frame, detector.getRect(pos).boundingRect(), Scalar(0, 255, 0), 3);
-            putText(frame, "Pos = " + to_string(pos), Point(100, 100), FONT_HERSHEY_PLAIN, 5.0, CV_RGB(0, 255, 0), 2);
-        }
+        cout << "Pos = " << dst << endl;
         cout << "Time = " << (endTime - startTime) / (cvGetTickFrequency() * 1000) << endl;
-        imshow("frame", frame);
-        if (waitKey(100) == 27)
-            break;
     }
 }
 
