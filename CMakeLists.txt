@@ -63,7 +63,7 @@ elseif (USE_REMOTE)
     set(ALL_LIB ${Protobuf_LIBRARIES} ${ALL_LIB})
 endif ()
 
-add_executable(runerec ${ADD_SRC} main.cc)
+add_library(runerec STATIC ${ADD_SRC})
 target_link_libraries(runerec ${ALL_LIB})
 
 if (ENABLE_TESTS)
