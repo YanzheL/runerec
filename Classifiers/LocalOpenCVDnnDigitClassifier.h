@@ -5,7 +5,7 @@
 #ifndef HANDWRITING_FLAMEWORDS_MODULE_2_LOCALOPENCVDNNDIGITCLASSIFIER_H
 #define HANDWRITING_FLAMEWORDS_MODULE_2_LOCALOPENCVDNNDIGITCLASSIFIER_H
 
-#include "Classifier.h"
+#include "Classifier_Internal.h"
 
 class LocalOpenCVDnnDigitClassifier : public DigitClassifier {
 public:

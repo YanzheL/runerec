@@ -3,6 +3,7 @@
 //
 
 #include "Classifier.h"
+
 using namespace std;
 using namespace cv;
 map<int, DigitClassifier *> DigitClassifier::instances;
@@ -127,7 +128,6 @@ void LedDigitClassifier::recognize(RepeatedData *container, int *dst) {
 //#define DEBUG_NET_STRUCTURE
 
 #ifdef USE_CUDA
-
 
 
 #endif

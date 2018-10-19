@@ -5,7 +5,7 @@
 #ifndef HANDWRITING_FLAMEWORDS_MODULE_2_LOCALTENSORRTDIGITCLASSIFIER_H
 #define HANDWRITING_FLAMEWORDS_MODULE_2_LOCALTENSORRTDIGITCLASSIFIER_H
 
-#include "Classifier.h"
+#include "Classifier_Internal.h"
 #include <algorithm>
 #include "cuda_runtime_api.h"
 #include <sys/stat.h>
