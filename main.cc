@@ -48,9 +48,6 @@ int main() {
 
 #include <thread>
 #include "Classifiers/Classifier.h"
-#include "Splitters/RuneSplitter.h"
-#include "Classifiers/LocalTFDigitClassifier.h"
-#include "Classifiers/LocalCaffeDigitClassifier.h"
 
 using namespace cv;
 using namespace std;
