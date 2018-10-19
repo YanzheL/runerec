@@ -54,12 +54,15 @@ inline bool checkRoi(const cv::cuda::GpuMat &img, const cv::Rect &rect) {
 
 template<typename T, class F>
 inline bool filter(std::vector<T> &vec, F func) {
+    bool ret = false;
     for (auto it = vec.begin(); it != vec.end();) {
-        if (!func(*it))
+        if (!func(*it)) {
             it = vec.erase(it);
-        else
+            ret = true;
+        } else
             ++it;
     }
+    return ret;
 };
 
 inline void filterRoi(const cv::cuda::GpuMat &img, std::vector<cv::RotatedRect> &rects) {
