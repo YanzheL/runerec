@@ -26,7 +26,7 @@ protected:
     }
 
     static void TearDownTestCase() {
-        cout << "Fuck" << endl;
+
     }
 
     static DigitClassifier *clsf;
@@ -38,14 +38,15 @@ DigitClassifier *FireDigitTest::clsf;
 namespace fs = boost::filesystem;
 
 TEST_F(FireDigitTest, F_Img) {
-    string dir = "../f_num";
+    string dir = "../../f_num";
     vector<Mat> imgs;
     vector<int> answers;
     int res[9];
     for (auto &p : fs::directory_iterator(dir)) {
-        int answer = p.path().c_str()[11] - '0';
+        string path = p.path().string();
+        int answer = *(path.rbegin() + 4) - '0';
         Mat frame;
-        frame = imread(p.path().string(), 0);
+        frame = imread(path, 0);
         threshold(frame, frame, 127, 1, THRESH_BINARY_INV);
         imgs.push_back(frame);
         answers.push_back(answer);
