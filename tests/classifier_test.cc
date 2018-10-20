@@ -22,7 +22,7 @@ protected:
 
     static void SetUpTestCase() {
         clsf = DigitClassifier::getInstance<LocalTFDigitClassifier>("LocalTFDigitClassifier",
-                                                                    "../../models/mnist/model.pb");
+                                                                    "../../../models/mnist/model.pb");
     }
 
     static void TearDownTestCase() {
