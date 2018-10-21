@@ -6,14 +6,13 @@
 #define RUNEREC_LOCALOPENCVDNNDIGITCLASSIFIER_H
 
 #include "Classifier_Internal.h"
+#include "opencv2/dnn.hpp"
 
 namespace runerec {
 class LocalOpenCVDnnDigitClassifier : public DigitClassifier {
  public:
 
-  LocalOpenCVDnnDigitClassifier() {
-    preferSize = 28;
-  }
+  LocalOpenCVDnnDigitClassifier(const std::string &modelDir) : DigitClassifier(28, modelDir) {}
 
   void recognize(const std::vector<cv::Mat> &images, int *dst) override;
 

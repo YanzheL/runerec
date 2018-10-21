@@ -39,7 +39,6 @@ class LocalTensorRTDigitClassifier : public DigitClassifier {
   void recognize(const std::vector<cv::Mat> &images, int goal, int *pos) override;
 
  protected:
-  const string modelDir;
   nvinfer1::ICudaEngine *engine;
   nvinfer1::IExecutionContext *context;
 

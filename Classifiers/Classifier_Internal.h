@@ -5,19 +5,9 @@
 #ifndef RUNEREC_CLASSIFIER_INTERNAL_H
 #define RUNEREC_CLASSIFIER_INTERNAL_H
 
-#include <chrono>
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <cstdlib>
-#include <vector>
-#include <opencv2/opencv.hpp>
+#include <opencv2/core/mat.hpp>
+#include <opencv2/imgproc/types_c.h>
 #include "opencv2/imgproc.hpp"
-#include "opencv2/highgui.hpp"
-#include "opencv2/dnn.hpp"
-
-#include "../Utils.h"
-#include "../factory.h"
 
 namespace runerec {
 class ModelConfig {
@@ -26,6 +16,9 @@ class ModelConfig {
 
 class DigitClassifier {
  public:
+  explicit DigitClassifier(int pfsize, const std::string &modelDir) : preferSize(pfsize), modelDir(modelDir) {
+
+  }
 
   virtual void recognize(const std::vector<cv::Mat> &images, int *dst) = 0;
 
@@ -54,6 +47,7 @@ class DigitClassifier {
 
  protected:
   int preferSize;
+  const std::string &modelDir;
 };
 
 #ifdef USE_REMOTE

@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-O3 -Werror")
 set(USE_REMOTE OFF)
 set(USE_CUDA OFF)
-set(USE_CAFFE OFF)
+set(USE_CAFFE ON)
 set(ENABLE_TESTS ON)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 find_package(OpenCV REQUIRED)
@@ -20,7 +20,6 @@ set(
         ADD_SRC
         factory.cc
         factory.h
-        Classifiers/Classifier.cc
         Classifiers/LocalOpenCVDnnDigitClassifier.cc
         Utils.cc
 )

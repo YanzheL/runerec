@@ -10,14 +10,11 @@
 namespace runerec {
 class LocalCaffeDigitClassifier : public LocalOpenCVDnnDigitClassifier {
  public:
-  explicit LocalCaffeDigitClassifier(const std::string modelDir) : modelDir(modelDir) {
+  explicit LocalCaffeDigitClassifier(const std::string &modelDir) : LocalOpenCVDnnDigitClassifier(modelDir) {
     std::string config = modelDir + "/config.prototxt";
     std::string model = modelDir + "/model.caffemodel";
     net = cv::dnn::readNetFromCaffe(config, model);
   };
-
- protected:
-  const std::string modelDir;
 };
 }
 

@@ -58,8 +58,8 @@ int main() {
     std::shared_ptr<DigitClassifier> clsf, ledClsf;
 #ifdef USE_CUDA
     ledClsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../models/led/model.uff");
-    clsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../models/mnist/model.uff");
-//    clsf = DigitClassifier::getInstance<LocalTFDigitClassifier>("LocalTFDigitClassifier",
+    tf_clsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../models/mnist/model.uff");
+//    tf_clsf = DigitClassifier::getInstance<LocalTFDigitClassifier>("LocalTFDigitClassifier",
 //                                                                "../../models/mnist/model.pb");
 //    fireClsf = DigitClassifier::getInstance<LocalTensorRTDigitClassifier>("LocalTensorRTDigitClassifier",
 //                                                                          "../../models/fire/model.uff");
@@ -68,7 +68,7 @@ int main() {
 #ifdef USE_CAFFE
     clsf = CachedFactory::getInstance<LocalCaffeDigitClassifier>("../../models/caffe");
 #else
-    clsf = CachedFactory::getInstance<LocalTFDigitClassifier>("../../models/mnist/model.pb");
+    tf_clsf = CachedFactory::getInstance<LocalTFDigitClassifier>("../../models/mnist/model.pb");
 #endif
 
     Mat frame;

@@ -11,7 +11,7 @@ namespace runerec {
 class LocalTFDigitClassifier : public LocalOpenCVDnnDigitClassifier {
  public:
 
-  explicit LocalTFDigitClassifier(const std::string &modelDir) : modelDir(modelDir) {
+  explicit LocalTFDigitClassifier(const std::string &modelDir) : LocalOpenCVDnnDigitClassifier(modelDir) {
     net = cv::dnn::readNetFromTensorflow(modelDir);
 #ifdef DEBUG_NET_STRUCTURE
     vector<std::string> names=net.getLayerNames();
@@ -19,10 +19,6 @@ class LocalTFDigitClassifier : public LocalOpenCVDnnDigitClassifier {
         cout<<n<<endl;
 #endif
   };
-
- protected:
-
-  const std::string modelDir;
 };
 }
 

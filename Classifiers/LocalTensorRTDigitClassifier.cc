@@ -10,8 +10,8 @@ using namespace cv;
 using namespace nvuffparser;
 using namespace nvinfer1;
 
-LocalTensorRTDigitClassifier::LocalTensorRTDigitClassifier(const string &modelDir) : modelDir(modelDir) {
-  preferSize = 28;
+LocalTensorRTDigitClassifier::LocalTensorRTDigitClassifier(const string &modelDir)
+    : DigitClassifier(28, modelDir) {
   int maxBatchSize = 9;
   auto parser = createUffParser();
   parser->registerInput("Placeholder", DimsCHW(1, preferSize, preferSize));
