@@ -34,16 +34,6 @@ class AllModelFixture : public ::testing::Test {
 
   static std::shared_ptr<DigitClassifier> tf_clsf, cf_clsf, led_clsf;
 
-  double accuracy(int res[], const vector<int> &answer) {
-    double t = 0;
-    double s = answer.size();
-    for (int i = 0; i < s; ++i) {
-      if (res[i] == answer[i])
-        ++t;
-    }
-    return t / s;
-  }
-
 };
 
 std::shared_ptr<DigitClassifier>AllModelFixture::tf_clsf;

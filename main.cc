@@ -48,40 +48,48 @@ int main() {
 
 #include <thread>
 #include "Classifiers/Classifier.h"
+#include <boost/filesystem.hpp>
 #include "factory.h"
 
 using namespace cv;
 using namespace std;
 using namespace runerec;
+namespace fs = boost::filesystem;
 
 int main() {
-    std::shared_ptr<DigitClassifier> clsf, ledClsf;
+  std::shared_ptr<DigitClassifier> clsf;
 #ifdef USE_CUDA
-    ledClsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../models/led/model.uff");
-    tf_clsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../models/mnist/model.uff");
+  ledClsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../models/led/model.uff");
+  tf_clsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../models/mnist/model.uff");
 //    tf_clsf = DigitClassifier::getInstance<LocalTFDigitClassifier>("LocalTFDigitClassifier",
 //                                                                "../../models/mnist/model.pb");
 //    fireClsf = DigitClassifier::getInstance<LocalTensorRTDigitClassifier>("LocalTensorRTDigitClassifier",
 //                                                                          "../../models/fire/model.uff");
 #endif
 
-#ifdef USE_CAFFE
-    clsf = CachedFactory::getInstance<LocalCaffeDigitClassifier>("../../models/caffe");
-#else
-    tf_clsf = CachedFactory::getInstance<LocalTFDigitClassifier>("../../models/mnist/model.pb");
-#endif
+  clsf = CachedFactory::getInstance<LocalTFDigitClassifier>("../../models/mnist/model.pb");
 
+  string dir = "../tests/data/fire_digits";
+  vector<Mat> imgs;
+  vector<int> answers;
+  int res[9];
+  for (auto &p : fs::directory_iterator(dir)) {
+    string path = p.path().string();
+    int answer = *(path.rbegin() + 4) - '0';
     Mat frame;
-    frame = imread("../f_num/f_2.jpg", 0);
+    frame = imread(path, 0);
     threshold(frame, frame, 127, 1, THRESH_BINARY_INV);
-    while (true) {
-        int dst;
-        double startTime = (double) cvGetTickCount();
-        clsf->recognize({frame}, &dst);
-        double endTime = (double) cvGetTickCount();
-        cout << "Pos = " << dst << endl;
-        cout << "Time = " << (endTime - startTime) / (cvGetTickFrequency() * 1000) << endl;
-    }
+    imgs.push_back(frame);
+    answers.push_back(answer);
+  }
+
+  while (true) {
+    double startTime = (double) cvGetTickCount();
+    clsf->recognize(imgs, res);
+    double endTime = (double) cvGetTickCount();
+    cout << "accuracy = " << accuracy(res, answers) << endl;
+    cout << "Time = " << (endTime - startTime) / (cvGetTickFrequency() * 1000) << endl;
+  }
 }
 
 #endif

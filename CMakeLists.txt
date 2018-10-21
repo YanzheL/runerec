@@ -19,7 +19,6 @@ endif ()
 set(
         ADD_SRC
         factory.cc
-        factory.h
         Classifiers/LocalOpenCVDnnDigitClassifier.cc
         Utils.cc
 )
@@ -57,17 +56,18 @@ elseif (USE_REMOTE)
     set(PROTO_SRCS proto/Image.pb.cc proto/RpcMessage.pb.cc)
     find_package(Protobuf REQUIRED)
     include_directories(${Protobuf_INCLUDE_DIRS})
-    set(Boost_USE_STATIC_LIBS ON)
-    find_package(Boost REQUIRED COMPONENTS system filesystem)
-    include_directories(${Boost_INCLUDE_DIRS})
     set(ADD_SRC ${PROTO_SRCS} ${PROTO_HDRS} ${ADD_SRC} Communicator.cpp Communicator.h)
     set(ALL_LIB ${Protobuf_LIBRARIES} ${ALL_LIB})
 endif ()
 
 add_library(runerec STATIC ${ADD_SRC})
 target_link_libraries(runerec ${ALL_LIB})
+
+find_package(Boost REQUIRED COMPONENTS system filesystem)
+include_directories(${Boost_INCLUDE_DIRS})
+set(Boost_USE_STATIC_LIBS ON)
 add_executable(runerec_main main.cc)
-target_link_libraries(runerec_main runerec)
+target_link_libraries(runerec_main runerec ${Boost_LIBRARIES})
 
 if (ENABLE_TESTS)
     add_subdirectory(googletest)

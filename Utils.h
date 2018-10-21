@@ -92,4 +92,14 @@ for_each_in_tuple(std::tuple<Tp...> &t, FuncT f) {
   for_each_in_tuple<I + 1, FuncT, Tp...>(t, f);
 }
 
+inline double accuracy(int res[], const std::vector<int> &answer) {
+  double t = 0;
+  double s = answer.size();
+  for (int i = 0; i < s; ++i) {
+    if (res[i] == answer[i])
+      ++t;
+  }
+  return t / s;
+}
+
 #endif //RUNERECQT_SINGLETONFACTORY_H
