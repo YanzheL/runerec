@@ -7,6 +7,7 @@
 
 #include "RuneSplitter.h"
 
+namespace runerec {
 class PureRuneSplitter : public RuneSplitter {
  public:
   PureRuneSplitter() = default;
@@ -23,5 +24,6 @@ class PureRuneSplitter : public RuneSplitter {
               std::vector<cv::RotatedRect> &sudoku_rects) override;
 
 };
+}
 
 #endif //HANDWRITING_FLAMEWORDS_MODULE_2_PURERUNESPLITTER_H

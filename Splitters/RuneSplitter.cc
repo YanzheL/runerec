@@ -7,6 +7,7 @@
 using namespace std;
 using namespace cv;
 using cuda::GpuMat;
+using namespace runerec;
 //using namespace Eigen;
 
 void

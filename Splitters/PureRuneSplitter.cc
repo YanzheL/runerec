@@ -7,6 +7,7 @@
 using namespace std;
 using namespace cv;
 using cuda::GpuMat;
+using namespace runerec;
 
 void PureRuneSplitter::split(const cv::cuda::GpuMat &frame, const cv::cuda::GpuMat &dst,
                              const std::vector<std::vector<cv::Point2i>> &contours,

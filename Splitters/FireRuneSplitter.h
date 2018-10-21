@@ -7,6 +7,7 @@
 
 #include "RuneSplitter.h"
 
+namespace runerec {
 class FireRuneSplitter : public RuneSplitter {
  public:
   FireRuneSplitter() = default;
@@ -85,5 +86,6 @@ class FireRuneSplitter : public RuneSplitter {
   cv::Point2f Top_Middle_First, Top_Middle_Sec, Left_Middle_First, Left_Middle_Sec, Bottom_Middle_First,
       Bottom_Middle_Sec, Right_Middle_First, Right_Middle_Sec;
 };
+}
 
 #endif //HANDWRITING_FLAMEWORDS_MODULE_2_FIRERUNESPLITTER_H

@@ -7,6 +7,7 @@
 using namespace std;
 using namespace cv;
 using cuda::GpuMat;
+using namespace runerec;
 
 void FireRuneSplitter::split(const cv::cuda::GpuMat &frame, std::vector<cv::cuda::GpuMat> &roi,
                              vector<RotatedRect> &roi_rects) {

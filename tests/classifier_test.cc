@@ -85,7 +85,7 @@ TEST_F(AllModelFixture, F_Img_Caffe) {
     answers.push_back(answer);
   }
   AllModelFixture::cf_clsf->recognize(imgs, res);
-  EXPECT_GE(accuracy(res,answers),0.5);
+  EXPECT_GE(accuracy(res, answers), 0.5);
 //  EXPECT_THAT(answers, ::testing::ElementsAreArray(res));
 }
 

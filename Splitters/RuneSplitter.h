@@ -20,13 +20,7 @@
 #endif
 
 #include <opencv2/core/cuda.hpp>
-
-#ifdef USE_CUDA
-
 #include <opencv2/cudaimgproc.hpp>
-
-#endif
-
 #include <opencv2/imgproc.hpp>
 #include <opencv2/opencv.hpp>
 #include <stdlib.h>
@@ -36,6 +30,8 @@
 
 #define WIDTH 1140
 #define HEIGHT 710
+
+namespace runerec {
 
 class RuneSplitter {
  public:
@@ -73,5 +69,6 @@ class RuneSplitter {
   float roi_width;
   float roi_height;
 };
+}
 
 #endif //RUNE_RUNESPLITER_H
