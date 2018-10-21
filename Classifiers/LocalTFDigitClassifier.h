@@ -2,36 +2,28 @@
 // Created by LI YANZHE on 18-4-13.
 //
 
-#ifndef HANDWRITING_FLAMEWORDS_MODULE_2_LOCALTFDIGITCLASSIFIER_H
-#define HANDWRITING_FLAMEWORDS_MODULE_2_LOCALTFDIGITCLASSIFIER_H
+#ifndef RUNEREC_LOCALTFDIGITCLASSIFIER_H
+#define RUNEREC_LOCALTFDIGITCLASSIFIER_H
 
 #include "LocalOpenCVDnnDigitClassifier.h"
 
+namespace runerec {
 class LocalTFDigitClassifier : public LocalOpenCVDnnDigitClassifier {
-public:
-    explicit LocalTFDigitClassifier(const std::string modelDir) : modelDir(modelDir) {
-        uuid = BKDRHash(className + modelDir);
-    };
+ public:
 
-    virtual void init() {
-        std::string model = modelDir;
-        net = cv::dnn::readNetFromTensorflow(model);
+  explicit LocalTFDigitClassifier(const std::string &modelDir) : modelDir(modelDir) {
+    net = cv::dnn::readNetFromTensorflow(modelDir);
 #ifdef DEBUG_NET_STRUCTURE
-        vector<std::string> names=net.getLayerNames();
+    vector<std::string> names=net.getLayerNames();
     for(const std::string& n:names)
         cout<<n<<endl;
 #endif
-    }
+  };
 
-    virtual const std::string &getName() {
-        return className;
-    }
+ protected:
 
-protected:
-    const std::string modelDir;
-
-private:
-    const std::string className = "LocalTFDigitClassifier";
+  const std::string modelDir;
 };
+}
 
-#endif //HANDWRITING_FLAMEWORDS_MODULE_2_LOCALTFDIGITCLASSIFIER_H
+#endif //RUNEREC_LOCALTFDIGITCLASSIFIER_H

@@ -11,14 +11,14 @@ using cuda::GpuMat;
 
 void
 RuneSplitter::split(const cv::Mat &frame, std::vector<cv::Mat> &blocks, vector<RotatedRect> &roi) {
-    cuda::GpuMat src(frame);
-    vector<GpuMat> gRes;
-    split(src, gRes, roi);
-    for (const auto &block:gRes) {
-        Mat m;
-        block.download(m);
-        blocks.push_back(m);
-    }
+  cuda::GpuMat src(frame);
+  vector<GpuMat> gRes;
+  split(src, gRes, roi);
+  for (const auto &block:gRes) {
+    Mat m;
+    block.download(m);
+    blocks.push_back(m);
+  }
 //    for (int i = 0; i < blocks.size(); ++i) {
 //        auto block = blocks[i];
 //        imshow(to_string(i), block);
@@ -28,35 +28,35 @@ RuneSplitter::split(const cv::Mat &frame, std::vector<cv::Mat> &blocks, vector<R
 void
 RuneSplitter::getContours(const cv::cuda::GpuMat &src, cv::cuda::GpuMat &erode_binary, cv::cuda::GpuMat &dilate_binary,
                           std::vector<std::vector<cv::Point2i>> &contours) {
-    src.copyTo(erode_binary);
-    if (erode_binary.channels() != 1) {
-        cuda::cvtColor(erode_binary, erode_binary, CV_BGR2GRAY);//单通道
-    }
+  src.copyTo(erode_binary);
+  if (erode_binary.channels() != 1) {
+    cuda::cvtColor(erode_binary, erode_binary, CV_BGR2GRAY);//单通道
+  }
 //    cuda::threshold(erode_binary, erode_binary, 127, 255, THRESH_BINARY);
-    cpuThreshold(erode_binary, erode_binary, 127, 255, THRESH_OTSU);
-    Mat element = getStructuringElement(MORPH_RECT, Size(3, 3));
-    Ptr<cuda::Filter> erode = cuda::createMorphologyFilter(cv::MORPH_ERODE, erode_binary.type(), element);
-    erode->apply(erode_binary, erode_binary);
-    Mat element2 = getStructuringElement(MORPH_RECT, Size(4, 4));
-    Ptr<cuda::Filter> dilate = cuda::createMorphologyFilter(cv::MORPH_DILATE, erode_binary.type(), element2);
-    dilate->apply(erode_binary, erode_binary);
-    dilate->apply(erode_binary, dilate_binary);
+  cpuThreshold(erode_binary, erode_binary, 127, 255, THRESH_OTSU);
+  Mat element = getStructuringElement(MORPH_RECT, Size(3, 3));
+  Ptr<cuda::Filter> erode = cuda::createMorphologyFilter(cv::MORPH_ERODE, erode_binary.type(), element);
+  erode->apply(erode_binary, erode_binary);
+  Mat element2 = getStructuringElement(MORPH_RECT, Size(4, 4));
+  Ptr<cuda::Filter> dilate = cuda::createMorphologyFilter(cv::MORPH_DILATE, erode_binary.type(), element2);
+  dilate->apply(erode_binary, erode_binary);
+  dilate->apply(erode_binary, dilate_binary);
 //    dilate->apply(dilate_binary, dilate_binary);
 //    dilate_binary=erode_binary;
-    vector<Vec4i> hierarchy;
-    Mat dld_dst;
-    dilate_binary.download(dld_dst);
-    findContours(dld_dst, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+  vector<Vec4i> hierarchy;
+  Mat dld_dst;
+  dilate_binary.download(dld_dst);
+  findContours(dld_dst, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
 }
 
 void RuneSplitter::split(const cv::cuda::GpuMat &frame, std::vector<cv::cuda::GpuMat> &roi,
                          std::vector<cv::RotatedRect> &roi_rects) {
 
-    GpuMat dst, erode_binary, dilate_binary;
-    frame.copyTo(dst);
-    vector<vector<Point2i>> contours;
-    getContours(dst, erode_binary, dilate_binary, contours);
-    split(frame, erode_binary, contours, roi, roi_rects);
+  GpuMat dst, erode_binary, dilate_binary;
+  frame.copyTo(dst);
+  vector<vector<Point2i>> contours;
+  getContours(dst, erode_binary, dilate_binary, contours);
+  split(frame, erode_binary, contours, roi, roi_rects);
 }
 
 //bool FireRuneSplitter::checkSudoku(const vector<vector<Point2i>> &contours,

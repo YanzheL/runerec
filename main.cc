@@ -48,17 +48,17 @@ int main() {
 
 #include <thread>
 #include "Classifiers/Classifier.h"
+#include "factory.h"
 
 using namespace cv;
 using namespace std;
+using namespace runerec;
 
 int main() {
-    DigitClassifier *clsf, *ledClsf;
+    std::shared_ptr<DigitClassifier> clsf, ledClsf;
 #ifdef USE_CUDA
-    ledClsf = DigitClassifier::getInstance<LocalTensorRTDigitClassifier>("LocalTensorRTDigitClassifier",
-                                                                         "../../models/led/model.uff");
-    clsf = DigitClassifier::getInstance<LocalTensorRTDigitClassifier>("LocalTensorRTDigitClassifier",
-                                                                      "../../models/mnist/model.uff");
+    ledClsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../models/led/model.uff");
+    clsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../models/mnist/model.uff");
 //    clsf = DigitClassifier::getInstance<LocalTFDigitClassifier>("LocalTFDigitClassifier",
 //                                                                "../../models/mnist/model.pb");
 //    fireClsf = DigitClassifier::getInstance<LocalTensorRTDigitClassifier>("LocalTensorRTDigitClassifier",
@@ -66,11 +66,9 @@ int main() {
 #endif
 
 #ifdef USE_CAFFE
-    clsf = DigitClassifier::getInstance<LocalCaffeDigitClassifier>("LocalCaffeDigitClassifier",
-                                                                   "../../models/caffe");
+    clsf = CachedFactory::getInstance<LocalCaffeDigitClassifier>("../../models/caffe");
 #else
-    clsf = DigitClassifier::getInstance<LocalTFDigitClassifier>("LocalTFDigitClassifier",
-                                                                "../../models/mnist/model.pb");
+    clsf = CachedFactory::getInstance<LocalTFDigitClassifier>("../../models/mnist/model.pb");
 #endif
 
     Mat frame;

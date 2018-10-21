@@ -2,32 +2,29 @@
 // Created by LI YANZHE on 18-4-13.
 //
 
-#ifndef HANDWRITING_FLAMEWORDS_MODULE_2_LOCALOPENCVDNNDIGITCLASSIFIER_H
-#define HANDWRITING_FLAMEWORDS_MODULE_2_LOCALOPENCVDNNDIGITCLASSIFIER_H
+#ifndef RUNEREC_LOCALOPENCVDNNDIGITCLASSIFIER_H
+#define RUNEREC_LOCALOPENCVDNNDIGITCLASSIFIER_H
 
 #include "Classifier_Internal.h"
 
+namespace runerec {
 class LocalOpenCVDnnDigitClassifier : public DigitClassifier {
-public:
+ public:
 
-    LocalOpenCVDnnDigitClassifier() {
-        preferSize = 28;
-    }
+  LocalOpenCVDnnDigitClassifier() {
+    preferSize = 28;
+  }
 
-    virtual long getId() {
-        return uuid;
-    }
+  void recognize(const std::vector<cv::Mat> &images, int *dst) override;
 
-    virtual void recognize(const std::vector<cv::Mat> &images, int *dst);
+  void recognize(const std::vector<cv::Mat> &images, int goal, int *pos) override;
 
-    virtual void recognize(const std::vector<cv::Mat> &images, int goal, int *pos);
+ protected:
 
-protected:
-    cv::dnn::Net net;
+  cv::dnn::Net net;
 
-    virtual void recognize(cv::Mat &blob, int *dst, size_t batchsize);
-
-    long uuid;
+  virtual void recognize(cv::Mat &blob, int *dst, size_t batchsize);
 };
+}
 
-#endif //HANDWRITING_FLAMEWORDS_MODULE_2_LOCALOPENCVDNNDIGITCLASSIFIER_H
+#endif //RUNEREC_LOCALOPENCVDNNDIGITCLASSIFIER_H

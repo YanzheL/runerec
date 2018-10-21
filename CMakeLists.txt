@@ -18,6 +18,8 @@ endif ()
 
 set(
         ADD_SRC
+        factory.cc
+        factory.h
         Classifiers/Classifier.cc
         Classifiers/LocalOpenCVDnnDigitClassifier.cc
         Utils.cc
@@ -65,6 +67,8 @@ endif ()
 
 add_library(runerec STATIC ${ADD_SRC})
 target_link_libraries(runerec ${ALL_LIB})
+add_executable(runerec_main main.cc)
+target_link_libraries(runerec_main runerec)
 
 if (ENABLE_TESTS)
     add_subdirectory(googletest)

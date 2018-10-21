@@ -17,80 +17,44 @@
 #include "opencv2/dnn.hpp"
 
 #include "../Utils.h"
+#include "../factory.h"
 
-//#define USE_CUDA
-//#define USE_REMOTE
-
-//#define DEBUG_NET_STRUCTURE
-//#define IMSHOW_EACH_CELL
-//#define SHOW_BINARY_MAT
-//#define SHOW_MAX_PROB
-
-//using namespace cv;
-//using namespace std;
-
-
-class DigitClassifier : public Identifiable {
-public:
-    template<class T, typename P>
-    static T *getInstance(char *name, Identifiable *param1) {
-        long id = BKDRHash(std::string(name)) + param1->getId();
-        return getInstance<T, P>(id, param1);
-    }
-
-    template<class T>
-    static T *getInstance(std::string name, std::string param1) {
-        long id = BKDRHash(name + param1);
-        return getInstance<T, std::string>(id, param1);
-    }
-
-    virtual void recognize(const std::vector<cv::Mat> &images, int *dst) = 0;
-
-    virtual void recognize(const std::vector<cv::Mat> &images, int goal, int *pos) = 0;
-
-    virtual void init() = 0;
-
-    inline void setPreferSize(int size) {
-        this->preferSize = size;
-    }
-
-    inline int getPreferSize() {
-        return preferSize;
-    }
-
-    inline void regularize(const cv::Mat &img, cv::Mat &cropped) {
-        if (!(img.rows == preferSize && img.cols == preferSize)) {
-            resize(img, cropped, cv::Size(preferSize, preferSize));
-        } else if (img.channels() != 1) {
-            cvtColor(img, cropped, CV_BGR2GRAY);
-        } else
-            img.copyTo(cropped);
-    }
-
-    virtual ~DigitClassifier() {}
-
-protected:
-    int preferSize;
-    static std::map<int, DigitClassifier *> instances;
-
-    template<class T, typename P>
-    static T *getInstance(long id, P param1) {
-        auto itr = instances.find(id);
-        if (itr != instances.end()) {
-            return (T *) (itr->second);
-        } else {
-            auto ins = new T(param1);
-            auto t_start = std::chrono::high_resolution_clock::now();
-            ins->init();
-            auto t_end = std::chrono::high_resolution_clock::now();
-            float ms = std::chrono::duration<float, std::milli>(t_end - t_start).count();
-            std::cout << "Init success, time used = " << ms << " ms" << std::endl;
-            instances[id] = ins;
-            return ins;
-        }
-    }
+namespace runerec {
+class ModelConfig {
+  std::string modelDir;
 };
 
+class DigitClassifier {
+ public:
+
+  virtual void recognize(const std::vector<cv::Mat> &images, int *dst) = 0;
+
+  virtual void recognize(const std::vector<cv::Mat> &images, int goal, int *pos) = 0;
+
+//    virtual void init() = 0;
+
+  inline void setPreferSize(int size) {
+    this->preferSize = size;
+  }
+
+  inline int getPreferSize() {
+    return preferSize;
+  }
+
+  inline void regularize(const cv::Mat &img, cv::Mat &cropped) {
+    if (!(img.rows == preferSize && img.cols == preferSize)) {
+      resize(img, cropped, cv::Size(preferSize, preferSize));
+    } else if (img.channels() != 1) {
+      cvtColor(img, cropped, CV_BGR2GRAY);
+    } else
+      img.copyTo(cropped);
+  }
+
+  virtual ~DigitClassifier() {}
+
+ protected:
+  int preferSize;
+};
 
 #ifdef USE_REMOTE
 
@@ -219,5 +183,6 @@ private:
 };
 
 #endif
+}
 
 #endif //RUNEREC_CLASSIFIER_INTERNAL_H

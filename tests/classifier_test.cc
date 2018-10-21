@@ -12,28 +12,29 @@
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 #include "../Classifiers/Classifier.h"
+#include "../factory.h"
 
 using namespace cv;
 using namespace std;
+using namespace runerec;
 
 class FireDigitTest : public ::testing::Test {
 
 protected:
 
     static void SetUpTestCase() {
-        clsf = DigitClassifier::getInstance<LocalTFDigitClassifier>("LocalTFDigitClassifier",
-                                                                    "../../../models/mnist/model.pb");
+        clsf = CachedFactory::getInstance<LocalTFDigitClassifier>("../../../models/mnist/model.pb");
     }
 
     static void TearDownTestCase() {
 
     }
 
-    static DigitClassifier *clsf;
+    static std::shared_ptr<DigitClassifier> clsf;
 
 };
 
-DigitClassifier *FireDigitTest::clsf;
+std::shared_ptr<DigitClassifier>FireDigitTest::clsf;
 
 namespace fs = boost::filesystem;
 

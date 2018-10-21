@@ -4,9 +4,9 @@
 
 #include "Classifier.h"
 
+using namespace runerec;
 using namespace std;
 using namespace cv;
-map<int, DigitClassifier *> DigitClassifier::instances;
 
 #ifdef USE_REMOTE
 
@@ -128,6 +128,5 @@ void LedDigitClassifier::recognize(RepeatedData *container, int *dst) {
 //#define DEBUG_NET_STRUCTURE
 
 #ifdef USE_CUDA
-
 
 #endif

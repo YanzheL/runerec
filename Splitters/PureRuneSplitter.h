@@ -8,18 +8,19 @@
 #include "RuneSplitter.h"
 
 class PureRuneSplitter : public RuneSplitter {
-public:
-    PureRuneSplitter() = default;
+ public:
+  PureRuneSplitter() = default;
 
-    PureRuneSplitter(float rune_w, float rune_h) : RuneSplitter(rune_w, rune_h) {};
+  PureRuneSplitter(float rune_w, float rune_h) : RuneSplitter(rune_w, rune_h) {};
 
-    virtual void split(const cv::cuda::GpuMat &frame, const cv::cuda::GpuMat &dst,
-                       const std::vector<std::vector<cv::Point2i>> &contours,
-                       std::vector<cv::cuda::GpuMat> &roi, std::vector<cv::RotatedRect> &roi_rects);
+  void split(const cv::cuda::GpuMat &frame, const cv::cuda::GpuMat &dst,
+             const std::vector<std::vector<cv::Point2i>> &contours,
+             std::vector<cv::cuda::GpuMat> &roi, std::vector<cv::RotatedRect> &roi_rects) override;
 
-protected:
-    virtual bool
-    checkSudoku(const std::vector<std::vector<cv::Point2i>> &contours, std::vector<cv::RotatedRect> &sudoku_rects);
+ protected:
+  bool
+  checkSudoku(const std::vector<std::vector<cv::Point2i>> &contours,
+              std::vector<cv::RotatedRect> &sudoku_rects) override;
 
 };
 

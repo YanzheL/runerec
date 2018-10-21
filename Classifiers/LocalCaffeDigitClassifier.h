@@ -2,33 +2,23 @@
 // Created by LI YANZHE on 18-4-13.
 //
 
-#ifndef HANDWRITING_FLAMEWORDS_MODULE_2_LOCALCAFFEDIGITCLASSIFIER_H
-#define HANDWRITING_FLAMEWORDS_MODULE_2_LOCALCAFFEDIGITCLASSIFIER_H
+#ifndef RUNEREC_LOCALCAFFEDIGITCLASSIFIER_H
+#define RUNEREC_LOCALCAFFEDIGITCLASSIFIER_H
 
 #include "LocalOpenCVDnnDigitClassifier.h"
 
+namespace runerec {
 class LocalCaffeDigitClassifier : public LocalOpenCVDnnDigitClassifier {
-public:
-    explicit LocalCaffeDigitClassifier(const std::string modelDir) : modelDir(modelDir) {
-        uuid = BKDRHash(className + modelDir);
-    };
+ public:
+  explicit LocalCaffeDigitClassifier(const std::string modelDir) : modelDir(modelDir) {
+    std::string config = modelDir + "/config.prototxt";
+    std::string model = modelDir + "/model.caffemodel";
+    net = cv::dnn::readNetFromCaffe(config, model);
+  };
 
-    virtual void init() {
-        std::string config = modelDir + "/config.prototxt";
-        std::string model = modelDir + "/model.caffemodel";
-        net = cv::dnn::readNetFromCaffe(config, model);
-    }
-
-    virtual const std::string &getName() {
-        return className;
-    }
-
-protected:
-    const std::string modelDir;
-
-
-private:
-    const std::string className = "LocalCaffeDigitClassifier";
+ protected:
+  const std::string modelDir;
 };
+}
 
-#endif //HANDWRITING_FLAMEWORDS_MODULE_2_LOCALCAFFEDIGITCLASSIFIER_H
+#endif //RUNEREC_LOCALCAFFEDIGITCLASSIFIER_H
