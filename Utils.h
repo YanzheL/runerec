@@ -92,7 +92,7 @@ for_each_in_tuple(std::tuple<Tp...> &t, FuncT f) {
   for_each_in_tuple<I + 1, FuncT, Tp...>(t, f);
 }
 
-inline double accuracy(int res[], const std::vector<int> &answer) {
+inline double accuracy(const int res[], const std::vector<int> &answer) {
   double t = 0;
   double s = answer.size();
   for (int i = 0; i < s; ++i) {
