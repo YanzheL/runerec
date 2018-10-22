@@ -24,11 +24,11 @@ class DigitClassifier {
 
 //    virtual void init() = 0;
 
-  inline void setPreferSize(int size) noexcept {
+  inline void setPreferSize(int size) {
     this->preferSize = size;
   }
 
-  inline int getPreferSize() const noexcept {
+  inline int getPreferSize() const {
     return preferSize;
   }
 
