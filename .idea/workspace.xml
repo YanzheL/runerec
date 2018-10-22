@@ -17,9 +17,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e2b9971-cd2e-4978-b23a-11cf96be6249" name="Default" comment="fix project include define name">
+    <list default="true" id="9e2b9971-cd2e-4978-b23a-11cf96be6249" name="Default" comment="const int[]">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/Utils.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/factory.cc" beforeDir="false" afterPath="$PROJECT_DIR$/factory.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/factory.h" beforeDir="false" afterPath="$PROJECT_DIR$/factory.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,15 +31,12 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/factory.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
-              <folding>
-                <element signature="e#97#114#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="105">
+              <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -46,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/factory.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="247">
+              <caret line="28" column="44" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -55,7 +53,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classifiers/LocalOpenCVDnnDigitClassifier.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
+            <state relative-caret-position="135">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#140#172#0" expanded="true" />
@@ -68,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/Classifiers/LocalOpenCVDnnDigitClassifier.cc">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+              <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -78,18 +76,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
               <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Utils.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="96" column="27" lean-forward="true" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="27" />
-              <folding>
-                <element signature="e#118#132#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -153,7 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/serial.cpp" />
         <option value="$PROJECT_DIR$/RuneResFilter.cpp" />
         <option value="$PROJECT_DIR$/RemoteController.cpp" />
         <option value="$PROJECT_DIR$/Settings.hpp" />
@@ -180,7 +165,6 @@
         <option value="$PROJECT_DIR$/Splitters/Splitters.h" />
         <option value="$PROJECT_DIR$/../playground/main.cpp" />
         <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/factory.cc" />
         <option value="$PROJECT_DIR$/Classifiers/LocalCaffeDigitClassifier.h" />
         <option value="$PROJECT_DIR$/Classifiers/LocalTensorRTDigitClassifier.h" />
         <option value="$PROJECT_DIR$/Classifiers/LocalTFDigitClassifier.h" />
@@ -199,20 +183,20 @@
         <option value="$PROJECT_DIR$/Splitters/LedRuneSplitter.h" />
         <option value="$PROJECT_DIR$/Splitters/PureRuneSplitter.h" />
         <option value="$PROJECT_DIR$/Splitters/RuneSplitter.h" />
-        <option value="$PROJECT_DIR$/factory.h" />
         <option value="$PROJECT_DIR$/Splitters/RuneSplitter.cc" />
         <option value="$PROJECT_DIR$/Classifiers/LocalOpenCVDnnDigitClassifier.cc" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/Utils.h" />
+        <option value="$USER_HOME$/xv6-public-cs153-lab/param.h" />
+        <option value="$PROJECT_DIR$/factory.cc" />
+        <option value="$PROJECT_DIR$/factory.h" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="false" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="243" />
-    <option name="y" value="105" />
-    <option name="width" value="1430" />
-    <option name="height" value="912" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -242,7 +226,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,6 +242,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -426,7 +410,8 @@
       <workItem from="1540145130048" duration="7123000" />
       <workItem from="1540154528948" duration="11202000" />
       <workItem from="1540166288448" duration="2376000" />
-      <workItem from="1540170865285" duration="1098000" />
+      <workItem from="1540170865285" duration="2525000" />
+      <workItem from="1540193101714" duration="1315000" />
     </task>
     <task id="LOCAL-00001" summary="fix project include define name">
       <created>1540168480231</created>
@@ -435,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540168480231</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="const int[]">
+      <created>1540173556368</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1540173556368</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -462,7 +454,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="438233000" />
+    <option name="totallyTimeSpent" value="440975000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -477,7 +469,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25894135" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26251787" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -487,10 +479,10 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.3210191" />
+      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.32048193" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5021834" side_tool="true" weight="0.32725322" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4978166" visible="true" weight="0.4506024" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4978166" weight="0.27349398" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.3745223" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Tail" order="13" />
@@ -506,7 +498,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix project include define name" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix project include define name" />
+    <MESSAGE value="const int[]" />
+    <option name="LAST_COMMIT_MESSAGE" value="const int[]" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -585,13 +578,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/local/include/opencv2/dnn.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="61" column="23" lean-forward="true" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/include/opencv2/dnn/dnn.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-515" />
@@ -807,16 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/factory.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
-          <folding>
-            <element signature="e#97#114#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Splitters/PureRuneSplitter.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -855,23 +831,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/factory.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classifiers/LocalOpenCVDnnDigitClassifier.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#140#172#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/algorithm">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -886,10 +845,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Utils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="96" column="27" lean-forward="true" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="27" />
+          <folding>
+            <element signature="e#118#132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/type_traits">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="2334" selection-start-line="2334" selection-end-line="2334" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classifiers/LocalOpenCVDnnDigitClassifier.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#140#172#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Classifiers/LocalOpenCVDnnDigitClassifier.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -900,13 +886,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utils.h">
+    <entry file="file://$PROJECT_DIR$/factory.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="96" column="27" lean-forward="true" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="27" />
-          <folding>
-            <element signature="e#118#132#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="247">
+          <caret line="28" column="44" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/factory.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>

@@ -11,6 +11,8 @@
 #include <memory>
 #include <map>
 #include <any>
+#include <tuple>
+#include <mutex>
 #include "Utils.h"
 
 namespace runerec {
@@ -29,14 +31,15 @@ class CachedFactory {
         }
     );
     return getInstance<T, std::string>(param_hash, std::forward<Arg>(param1)...);
-  };
+  }
 
  private:
-//    static std::map<unsigned long, CachedFactory *> instances;
+  static std::mutex m;
   static std::map<unsigned long, std::any> instances;
 
   template<class T, typename ...Arg>
   static std::shared_ptr<T> getInstance(unsigned long id, Arg &&... param1) {
+    std::lock_guard<std::mutex> guard(m);
     auto itr = instances.find(id);
     if (itr != instances.end()) {
       return std::any_cast<std::shared_ptr<T>>(itr->second);
@@ -49,7 +52,7 @@ class CachedFactory {
       instances[id] = std::any(ins);
       return ins;
     }
-  };
+  }
 };
 }
 #endif //RUNEREC_FACTORY_H
