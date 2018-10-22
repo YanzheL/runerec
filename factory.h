@@ -48,7 +48,8 @@ class CachedFactory {
       std::shared_ptr<T> ins(new T(std::forward<Arg>(param1)...));
       auto t_end = std::chrono::high_resolution_clock::now();
       float ms = std::chrono::duration<float, std::milli>(t_end - t_start).count();
-      std::cout << "Init success, time used = " << ms << " ms" << std::endl;
+      std::cout << "Class<" << typeid(T).name() << "> Init success, hash = " << id << " time used = " << ms << " ms"
+                << std::endl;
       instances[id] = std::any(ins);
       return ins;
     }

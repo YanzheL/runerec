@@ -16,9 +16,7 @@ class ModelConfig {
 
 class DigitClassifier {
  public:
-  explicit DigitClassifier(int pfsize, const std::string &modelDir) : preferSize(pfsize), modelDir(modelDir) {
-
-  }
+  explicit DigitClassifier(int pfsize, const std::string &modelDir) : preferSize(pfsize), modelDir(modelDir) {}
 
   virtual void recognize(const std::vector<cv::Mat> &images, int *dst) = 0;
 
@@ -26,15 +24,15 @@ class DigitClassifier {
 
 //    virtual void init() = 0;
 
-  inline void setPreferSize(int size) {
+  inline void setPreferSize(int size) noexcept {
     this->preferSize = size;
   }
 
-  inline int getPreferSize() {
+  inline int getPreferSize() const noexcept {
     return preferSize;
   }
 
-  inline void regularize(const cv::Mat &img, cv::Mat &cropped) {
+  inline void regularize(const cv::Mat &img, cv::Mat &cropped) const {
     if (!(img.rows == preferSize && img.cols == preferSize)) {
       resize(img, cropped, cv::Size(preferSize, preferSize));
     } else if (img.channels() != 1) {
