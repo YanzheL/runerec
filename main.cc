@@ -68,6 +68,7 @@ int main() {
 #endif
 
   clsf = CachedFactory::getInstance<LocalTFDigitClassifier>("../../models/mnist/model.pb");
+//  clsf = make_shared<LocalTFDigitClassifier>("../../models/mnist/model.pb");
 
   string dir = "../tests/data/fire_digits";
   vector<Mat> imgs;

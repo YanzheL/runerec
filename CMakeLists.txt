@@ -20,7 +20,6 @@ set(
         ADD_SRC
         factory.cc
         Classifiers/LocalOpenCVDnnDigitClassifier.cc
-        Utils.cc
 )
 
 set(ALL_LIB pthread ${OpenCV_LIBRARIES})
