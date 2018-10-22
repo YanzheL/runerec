@@ -2,8 +2,8 @@
 // Created by LI YANZHE on 18-4-13.
 //
 
-#ifndef RUNE_RUNESPLITER_H
-#define RUNE_RUNESPLITER_H
+#ifndef RUNEREC_RUNESPLITER_H
+#define RUNEREC_RUNESPLITER_H
 
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
@@ -71,4 +71,4 @@ class RuneSplitter {
 };
 }
 
-#endif //RUNE_RUNESPLITER_H
+#endif //RUNEREC_RUNESPLITER_H

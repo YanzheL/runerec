@@ -2,13 +2,13 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="runerec" targetName="gmock_main" />
       <config projectName="runerec" targetName="gtest_main" />
-      <config projectName="runerec" targetName="runerec_main" />
-      <config projectName="runerec" targetName="classifier_test" />
-      <config projectName="runerec" targetName="gtest" />
       <config projectName="runerec" targetName="runerec" />
+      <config projectName="runerec" targetName="gmock_main" />
+      <config projectName="runerec" targetName="gtest" />
+      <config projectName="runerec" targetName="classifier_test" />
       <config projectName="runerec" targetName="gmock" />
+      <config projectName="runerec" targetName="runerec_main" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -17,7 +17,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e2b9971-cd2e-4978-b23a-11cf96be6249" name="Default" comment="" />
+    <list default="true" id="9e2b9971-cd2e-4978-b23a-11cf96be6249" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Splitters/FireRuneSplitter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Splitters/FireRuneSplitter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Splitters/LedRuneSplitter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Splitters/LedRuneSplitter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Splitters/PureRuneSplitter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Splitters/PureRuneSplitter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Splitters/RuneSplitter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Splitters/RuneSplitter.h" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,13 +35,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/factory.h">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-              <folding>
-                <element signature="e#97#114#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="225">
+              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -62,7 +65,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Point2fWithIdx</find>
       <find>cv::RotatedRect&amp;</find>
       <find>second</find>
       <find>imshow</find>
@@ -83,7 +85,6 @@
       <find>map</find>
       <find>string</find>
       <find>RotatedRect</find>
-      <find>runerec</find>
       <find>dnn</find>
       <find>ADD_SRC</find>
       <find>gtest</find>
@@ -92,6 +93,8 @@
       <find>factory</find>
       <find>Classifier_Internal.cc</find>
       <find>push_back</find>
+      <find>runerec</find>
+      <find>HANDWRITING_FLAMEWORDS_MODULE_2</find>
     </findStrings>
     <replaceStrings>
       <replace>Point2fWithIdx</replace>
@@ -105,7 +108,11 @@
       <replace>runerec</replace>
       <replace>cv::dnn</replace>
       <replace>MAIN_SRC</replace>
+      <replace />
     </replaceStrings>
+    <dirStrings>
+      <dir>./</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -152,18 +159,18 @@
         <option value="$PROJECT_DIR$/Classifiers/LocalOpenCVDnnDigitClassifier.h" />
         <option value="$PROJECT_DIR$/Classifiers/Classifier_Internal.cc" />
         <option value="$PROJECT_DIR$/Splitters/RuneSplitter.cc" />
-        <option value="$PROJECT_DIR$/Splitters/RuneSplitter.h" />
-        <option value="$PROJECT_DIR$/Splitters/PureRuneSplitter.h" />
         <option value="$PROJECT_DIR$/Splitters/PureRuneSplitter.cc" />
-        <option value="$PROJECT_DIR$/Splitters/LedRuneSplitter.h" />
         <option value="$PROJECT_DIR$/Splitters/LedRuneSplitter.cc" />
-        <option value="$PROJECT_DIR$/Splitters/FireRuneSplitter.h" />
         <option value="$PROJECT_DIR$/Splitters/FireRuneSplitter.cc" />
         <option value="$PROJECT_DIR$/tests/classifier_test.cc" />
         <option value="$PROJECT_DIR$/Utils.h" />
         <option value="$PROJECT_DIR$/main.cc" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Splitters/FireRuneSplitter.h" />
+        <option value="$PROJECT_DIR$/Splitters/LedRuneSplitter.h" />
+        <option value="$PROJECT_DIR$/Splitters/PureRuneSplitter.h" />
+        <option value="$PROJECT_DIR$/Splitters/RuneSplitter.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -209,6 +216,11 @@
             <path>
               <item name="runerec" type="b2602c69:ProjectViewProjectNode" />
               <item name="runerec" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="runerec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="runerec" type="462c0819:PsiDirectoryNode" />
+              <item name="Splitters" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -380,7 +392,7 @@
       <workItem from="1540059639404" duration="221000" />
       <workItem from="1540145130048" duration="7123000" />
       <workItem from="1540154528948" duration="11202000" />
-      <workItem from="1540166288448" duration="1608000" />
+      <workItem from="1540166288448" duration="2139000" />
     </task>
     <servers />
   </component>
@@ -408,7 +420,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="436367000" />
+    <option name="totallyTimeSpent" value="436898000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -423,7 +435,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553648" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553648" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -436,8 +448,8 @@
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32168674" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5021834" side_tool="true" weight="0.32725322" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4978166" visible="true" weight="0.3493976" />
-      <window_info anchor="bottom" id="CMake" order="11" weight="0.2433735" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4978166" weight="0.9373494" />
+      <window_info anchor="bottom" id="CMake" order="11" visible="true" weight="0.2433735" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Tail" order="13" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -564,13 +576,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="160" column="13" selection-start-line="160" selection-start-column="2" selection-end-line="160" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Splitters/Splitter.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -711,13 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Splitters/FireRuneSplitter.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="87" column="2" selection-start-line="87" selection-start-column="2" selection-end-line="87" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Splitters/LedRuneSplitter.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -725,35 +723,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Splitters/LedRuneSplitter.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Splitters/PureRuneSplitter.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Splitters/PureRuneSplitter.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Splitters/RuneSplitter.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="e#98#125#0" expanded="true" />
-            <element signature="e#295#339#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -789,13 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="842">
-          <caret line="63" column="41" lean-forward="true" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -840,13 +806,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Splitters/Splitter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Splitters/RuneSplitter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding>
+            <element signature="e#295#339#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Splitters/PureRuneSplitter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Splitters/LedRuneSplitter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Splitters/FireRuneSplitter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/factory.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-          <folding>
-            <element signature="e#97#114#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
         </state>
       </provider>
     </entry>
