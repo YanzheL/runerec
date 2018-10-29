@@ -11,6 +11,8 @@
 #include <memory>
 #include <map>
 #include <any>
+#include <tuple>
+#include <mutex>
 #include "Utils.h"
 
 namespace runerec {
@@ -29,14 +31,15 @@ class CachedFactory {
         }
     );
     return getInstance<T, std::string>(param_hash, std::forward<Arg>(param1)...);
-  };
+  }
 
  private:
-//    static std::map<unsigned long, CachedFactory *> instances;
+  static std::mutex m;
   static std::map<unsigned long, std::any> instances;
 
   template<class T, typename ...Arg>
   static std::shared_ptr<T> getInstance(unsigned long id, Arg &&... param1) {
+    std::lock_guard<std::mutex> guard(m);
     auto itr = instances.find(id);
     if (itr != instances.end()) {
       return std::any_cast<std::shared_ptr<T>>(itr->second);
@@ -45,11 +48,12 @@ class CachedFactory {
       std::shared_ptr<T> ins(new T(std::forward<Arg>(param1)...));
       auto t_end = std::chrono::high_resolution_clock::now();
       float ms = std::chrono::duration<float, std::milli>(t_end - t_start).count();
-      std::cout << "Init success, time used = " << ms << " ms" << std::endl;
+      std::cout << "Class<" << typeid(T).name() << "> Init success, hash = " << id << " time used = " << ms << " ms"
+                << std::endl;
       instances[id] = std::any(ins);
       return ins;
     }
-  };
+  }
 };
 }
 #endif //RUNEREC_FACTORY_H

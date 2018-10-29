@@ -18,7 +18,15 @@ struct Point2fWithIdx {
 //        Point2fWithIdx(const cv::Point2f _p, size_t _idx) : p(_p), idx(_idx) {}
 };
 
-unsigned int BKDRHash(std::string src);
+constexpr inline unsigned int BKDRHash(std::string &src) {
+  char *str = (char *) src.c_str();
+  unsigned int seed = 131; // 31 131 1313 13131 131313 etc..
+  unsigned int hash = 0;
+  while (*str) {
+    hash = hash * seed + (*str++);
+  }
+  return (hash & 0x7FFFFFFF);
+};
 
 inline void showGpuMat(const std::string info, const cv::cuda::GpuMat &img) {
   cv::Mat dld;
@@ -92,7 +100,7 @@ for_each_in_tuple(std::tuple<Tp...> &t, FuncT f) {
   for_each_in_tuple<I + 1, FuncT, Tp...>(t, f);
 }
 
-inline double accuracy(const int res[], const std::vector<int> &answer) {
+constexpr inline double accuracy(const int res[], const std::vector<int> &answer) {
   double t = 0;
   double s = answer.size();
   for (int i = 0; i < s; ++i) {

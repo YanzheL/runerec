@@ -39,3 +39,4 @@ using namespace runerec;
 //}
 
 std::map<unsigned long, std::any> CachedFactory::instances;
+std::mutex CachedFactory::m;

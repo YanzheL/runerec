@@ -12,7 +12,7 @@ namespace runerec {
 class LocalOpenCVDnnDigitClassifier : public DigitClassifier {
  public:
 
-  LocalOpenCVDnnDigitClassifier(const std::string &modelDir) : DigitClassifier(28, modelDir) {}
+  explicit LocalOpenCVDnnDigitClassifier(const std::string &modelDir) : DigitClassifier(28, modelDir) {}
 
   void recognize(const std::vector<cv::Mat> &images, int *dst) override;
 
