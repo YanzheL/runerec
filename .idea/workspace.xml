@@ -17,22 +17,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e2b9971-cd2e-4978-b23a-11cf96be6249" name="Default" comment="fix project include define name">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classifiers/Classifier.h" beforeDir="false" afterPath="$PROJECT_DIR$/Classifiers/Classifier.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classifiers/LocalTensorRTDigitClassifier.cc" beforeDir="false" afterPath="$PROJECT_DIR$/Classifiers/LocalTensorRTDigitClassifier.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classifiers/LocalTensorRTDigitClassifier.h" beforeDir="false" afterPath="$PROJECT_DIR$/Classifiers/LocalTensorRTDigitClassifier.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Splitters/FireRuneSplitter.cc" beforeDir="false" afterPath="$PROJECT_DIR$/Splitters/FireRuneSplitter.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Splitters/FireRuneSplitter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Splitters/FireRuneSplitter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Splitters/LedRuneSplitter.cc" beforeDir="false" afterPath="$PROJECT_DIR$/Splitters/LedRuneSplitter.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Splitters/PureRuneSplitter.cc" beforeDir="false" afterPath="$PROJECT_DIR$/Splitters/PureRuneSplitter.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Splitters/RuneSplitter.cc" beforeDir="false" afterPath="$PROJECT_DIR$/Splitters/RuneSplitter.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Splitters/RuneSplitter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Splitters/RuneSplitter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/googletest" beforeDir="false" afterPath="$PROJECT_DIR$/googletest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cc" beforeDir="false" afterPath="$PROJECT_DIR$/main.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/classifier_test.cc" beforeDir="false" afterPath="$PROJECT_DIR$/tests/classifier_test.cc" afterDir="false" />
+    <list default="true" id="9e2b9971-cd2e-4978-b23a-11cf96be6249" name="Default" comment="fix cuda include">
+      <change beforePath="$PROJECT_DIR$/factory.h" beforeDir="false" afterPath="$PROJECT_DIR$/factory.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,25 +39,27 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cc" value="141" />
-          <entry key="h" value="10" />
-          <entry key="txt" value="48" />
+          <entry key="h" value="13" />
+          <entry key="txt" value="64" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="48" />
-          <entry key="ObjectiveC" value="151" />
+          <entry key="ObjectiveC" value="154" />
+          <entry key="PLAIN_TEXT" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cc" value="8" />
-          <entry key="h" value="16" />
+          <entry key="cc" value="10" />
+          <entry key="chrono" value="1" />
+          <entry key="h" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ObjectiveC" value="24" />
+          <entry key="ObjectiveC" value="28" />
         </counts>
       </usages-collector>
     </session>
@@ -79,12 +67,44 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/factory.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+              <folding>
+                <element signature="e#97#114#0" expanded="true" />
+                <element signature="e#918#944#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/factory.cc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-381">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Splitters/RuneSplitter.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="51" column="1" lean-forward="true" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
+            <state relative-caret-position="203">
+              <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.cc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-464">
+              <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
               <folding>
-                <element signature="e#104#121#0" expanded="true" />
+                <element signature="e#1279#1296#0" expanded="true" />
+                <element signature="e#2194#2283#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -186,7 +206,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Splitters/LedRuneSplitter.h" />
         <option value="$PROJECT_DIR$/Splitters/PureRuneSplitter.h" />
-        <option value="$PROJECT_DIR$/factory.h" />
         <option value="$PROJECT_DIR$/Classifiers/LocalOpenCVDnnDigitClassifier.cc" />
         <option value="$PROJECT_DIR$/Utils.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
@@ -200,6 +219,7 @@
         <option value="$PROJECT_DIR$/Splitters/RuneSplitter.cc" />
         <option value="$PROJECT_DIR$/Classifiers/LocalTensorRTDigitClassifier.cc" />
         <option value="$PROJECT_DIR$/Splitters/RuneSplitter.h" />
+        <option value="$PROJECT_DIR$/factory.h" />
       </list>
     </option>
   </component>
@@ -277,6 +297,123 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Classifiers" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/CMakeLists.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Classifiers/Classifier_Internal.h</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Classifiers/LocalOpenCVDnnDigitClassifier.h</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Utils.h</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/factory.cc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/factory.h</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/main.cc</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Utils.cc</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -433,7 +570,7 @@
       <workItem from="1540154528948" duration="11202000" />
       <workItem from="1540166288448" duration="2376000" />
       <workItem from="1540170865285" duration="1098000" />
-      <workItem from="1540790994921" duration="2293000" />
+      <workItem from="1540790994921" duration="2681000" />
     </task>
     <task id="LOCAL-00001" summary="fix project include define name">
       <created>1540168480231</created>
@@ -442,7 +579,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540168480231</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix cuda include">
+      <created>1540793462645</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1540793462645</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -469,7 +613,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="440526000" />
+    <option name="totallyTimeSpent" value="440914000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -482,13 +626,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-76" width="2560" height="1676" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25687703" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32168674" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2684659" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.48863637" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.42048192" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -496,7 +641,7 @@
       <window_info anchor="bottom" id="Messages" order="7" visible="true" weight="0.3416193" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5021834" side_tool="true" weight="0.32725322" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4978166" weight="0.26633522" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4978166" weight="0.17613636" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.37428978" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Tail" order="13" />
@@ -514,15 +659,17 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="fix project include define name" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix project include define name" />
+    <MESSAGE value="fix cuda include" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix cuda include" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/main.cc</url>
-          <line>34</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -552,17 +699,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Utils.h</url>
-          <line>49</line>
+          <line>57</line>
           <option name="timeStamp" value="169" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Utils.h</url>
-          <line>50</line>
+          <line>58</line>
           <option name="timeStamp" value="170" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Utils.h</url>
-          <line>51</line>
+          <line>59</line>
           <option name="timeStamp" value="171" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -574,13 +721,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/googletest/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/googletest/googletest/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -686,27 +826,10 @@
       </provider>
     </entry>
     <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/algorithm" />
-    <entry file="file://$PROJECT_DIR$/factory.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classifiers/LocalOpenCVDnnDigitClassifier.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
           <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/factory.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="34" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="34" />
-          <folding>
-            <element signature="e#97#114#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -857,8 +980,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        <state relative-caret-position="-464">
+          <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
           <folding>
             <element signature="e#1279#1296#0" expanded="true" />
             <element signature="e#2194#2283#0" expanded="true" />
@@ -866,12 +989,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/include/c++/7/chrono">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="58" column="2" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/factory.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-381">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Splitters/RuneSplitter.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="51" column="1" lean-forward="true" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
+        <state relative-caret-position="203">
+          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/factory.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
           <folding>
-            <element signature="e#104#121#0" expanded="true" />
+            <element signature="e#97#114#0" expanded="true" />
+            <element signature="e#918#944#0" expanded="true" />
           </folding>
         </state>
       </provider>
