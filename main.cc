@@ -57,17 +57,17 @@ using namespace runerec;
 namespace fs = boost::filesystem;
 
 int main() {
-  std::shared_ptr<DigitClassifier> clsf;
+  std::shared_ptr<DigitClassifier> clsf, tf_clsf, ledClsf;
 #ifdef USE_CUDA
-  ledClsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../models/led/model.uff");
-  tf_clsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../models/mnist/model.uff");
+//  ledClsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../models/led/model.uff");
+  clsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../models/mnist/model.uff");
 //    tf_clsf = DigitClassifier::getInstance<LocalTFDigitClassifier>("LocalTFDigitClassifier",
 //                                                                "../../models/mnist/model.pb");
 //    fireClsf = DigitClassifier::getInstance<LocalTensorRTDigitClassifier>("LocalTensorRTDigitClassifier",
 //                                                                          "../../models/fire/model.uff");
-#endif
-
+#else
   clsf = CachedFactory::getInstance<LocalTFDigitClassifier>("../../models/mnist/model.pb");
+#endif
 
   string dir = "../tests/data/fire_digits";
   vector<Mat> imgs;

@@ -3,6 +3,11 @@
 //
 
 #include "LocalTensorRTDigitClassifier.h"
+#include <algorithm>
+#include "cuda_runtime_api.h"
+#include <sys/stat.h>
+#include <unordered_map>
+#include <cassert>
 
 using namespace runerec;
 using namespace std;
@@ -14,7 +19,7 @@ LocalTensorRTDigitClassifier::LocalTensorRTDigitClassifier(const string &modelDi
     : DigitClassifier(28, modelDir) {
   int maxBatchSize = 9;
   auto parser = createUffParser();
-  parser->registerInput("Placeholder", DimsCHW(1, preferSize, preferSize));
+  parser->registerInput("Placeholder", DimsCHW(1, preferSize, preferSize), UffInputOrder::kNHWC);
   parser->registerOutput("Softmax");
   engine = loadModelAndCreateEngine(modelDir.c_str(), maxBatchSize, parser);
   parser->destroy();
@@ -80,7 +85,7 @@ void LocalTensorRTDigitClassifier::recognize(const vector<Mat> &images, int *dst
   int batchSize = images.size();
   if (batchSize <= 0)
     return;
-  cout << "Classifier batch size = " << batchSize << endl;
+//  cout << "Classifier batch size = " << batchSize << endl;
   int nbBindings = engine->getNbBindings();
   assert(nbBindings == 2);
   std::vector<void *> buffers(nbBindings);
@@ -129,11 +134,11 @@ void LocalTensorRTDigitClassifier::recognize(const vector<Mat> &images, int *dst
   for (int bindingIdx = 0; bindingIdx < nbBindings; ++bindingIdx)
     if (!engine->bindingIsInput(bindingIdx))
       CHECK(cudaFree(buffers[bindingIdx]));
-  cout << "Classifier result = ";
-  for (int i = 0; i < batchSize; ++i) {
-    cout << *(dst + i) << ", ";
-  }
-  cout << endl;
+//  cout << "Classifier result = ";
+//  for (int i = 0; i < batchSize; ++i) {
+//    cout << *(dst + i) << ", ";
+//  }
+//  cout << endl;
 }
 
 ICudaEngine *
@@ -148,7 +153,7 @@ LocalTensorRTDigitClassifier::loadModelAndCreateEngine(const char *uffFile, int 
   ICudaEngine *engine = builder->buildCudaEngine(*network);
   if (!engine)
     RETURN_AND_LOG(nullptr, ERROR, "Unable to create engine");
-  /* we can clean the network and the parser */
+
   network->destroy();
   builder->destroy();
   return engine;
@@ -159,7 +164,7 @@ void LocalTensorRTDigitClassifier::recognize(const vector<Mat> &images, int goal
     *pos = -1;
     return;
   }
-  int batchSize = images.size();
+  size_t batchSize = images.size();
   auto result = new int[batchSize];
   recognize(images, result);
   *pos = -1;

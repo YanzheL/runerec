@@ -3,6 +3,14 @@
 //
 
 #include "FireRuneSplitter.h"
+#include <numeric>
+#include <Eigen/Core>
+#include <opencv2/cudaimgproc.hpp>
+#include <opencv2/cudafilters.hpp>
+#include <opencv2/cudawarping.hpp>
+#include <opencv2/cudaarithm.hpp>
+//#include <opencv2/cudafeatures2d.hpp>
+#include "../Utils.h"
 
 using namespace std;
 using namespace cv;
@@ -259,7 +267,7 @@ void FireRuneSplitter::Crop(cv::cuda::GpuMat &image, cv::cuda::GpuMat &dst, floa
       dst = image(Number);
       return;
     } else {
-      cout << "dst = drawing" << endl;
+//      cout << "dst = drawing" << endl;
       dst = GpuMat(drawing);
       return;
     }
@@ -317,7 +325,7 @@ vector<int> FireRuneSplitter::DescendingSort_Indexes(const vector<T> &v) {
 bool FireRuneSplitter::checkSudoku(const vector<vector<Point2i>> &contours,
                                    vector<RotatedRect> &sudoku_rects) {
 
-  cout << "----------------------------contours size = " << contours.size() << endl;
+//  cout << "----------------------------contours size = " << contours.size() << endl;
   if (contours.size() < 10)
     return false;
   float ratio = 140.0 / 69.4;
@@ -350,7 +358,7 @@ bool FireRuneSplitter::checkSudoku(const vector<vector<Point2i>> &contours,
     }
 
   }
-  cout << "sudoku_rects =  " << sudoku << "  i" << i << endl;
+//  cout << "sudoku_rects =  " << sudoku << "  i" << i << endl;
   return sudoku >= 9;
 }
 
@@ -419,24 +427,24 @@ bool FireRuneSplitter::filterValidSideBoxes(std::vector<cv::RotatedRect> &rects)
        [](const RotatedRect &r1, const RotatedRect &r2) { return r1.boundingRect().x <= r2.boundingRect().x; });
   if (rects.size() == 10)
     return true;
-  else {
-    vector<pair<float, int>> dist;
-    for (int i = 0; i < rects.size() - 1; ++i) {
-      dist.push_back(make_pair(abs(rects[i + 1].boundingRect().x - rects[i].boundingRect().x), i));
-    }
-    sort(dist.begin(), dist.end(),
-         [](const pair<float, int> &o1, const pair<float, int> &o2) { return o1.first <= o2.first; });
-    vector<pair<float, int>> candidates;
-    candidates.assign(dist.begin(), dist.begin() + 9);
-    sort(candidates.begin(), candidates.end(),
-         [](const pair<float, int> &o1, const pair<float, int> &o2) { return o1.second <= o2.second; });
-    vector<RotatedRect> selected;
-    for (const auto &c:candidates) {
-      selected.push_back(rects[c.second]);
-    }
-    rects.clear();
-    rects.assign(selected.begin(), selected.end());
+
+  vector<pair<float, int>> dist;
+  for (int i = 0; i < rects.size() - 1; ++i) {
+    dist.push_back(make_pair(abs(rects[i + 1].boundingRect().x - rects[i].boundingRect().x), i));
   }
+  sort(dist.begin(), dist.end(),
+       [](const pair<float, int> &o1, const pair<float, int> &o2) { return o1.first <= o2.first; });
+  vector<pair<float, int>> candidates;
+  candidates.assign(dist.begin(), dist.begin() + 9);
+  sort(candidates.begin(), candidates.end(),
+       [](const pair<float, int> &o1, const pair<float, int> &o2) { return o1.second <= o2.second; });
+  vector<RotatedRect> selected;
+  for (const auto &c:candidates) {
+    selected.push_back(rects[c.second]);
+  }
+  rects.clear();
+  rects.assign(selected.begin(), selected.end());
+  return false;
 
 }
 

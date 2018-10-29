@@ -4,13 +4,15 @@ project(runerec)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-O3 -Werror")
 set(USE_REMOTE OFF)
-set(USE_CUDA OFF)
-set(USE_CAFFE ON)
+set(USE_CUDA ON)
+set(USE_EIGEN ON)
+set(USE_CAFFE OFF)
 set(ENABLE_TESTS ON)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
-if (USE_EIGEN3)
+if (USE_EIGEN)
+    add_definitions(-DUSE_EIGEN)
     find_package(Eigen3 REQUIRED)
     include_directories(${EIGEN3_INCLUDE_DIR})
 endif ()
@@ -34,6 +36,8 @@ if (USE_CUDA)
             -O3
             -gencode arch=compute_61,code=sm_61
             -gencode arch=compute_62,code=sm_62
+            -gencode arch=compute_75,code=sm_75
+            -gencode arch=compute_75,code=sm_75
     )
     set(
             ADD_SRC
@@ -44,7 +48,7 @@ if (USE_CUDA)
             Splitters/RuneSplitter.cc
             Splitters/PureRuneSplitter.cc
     )
-    include_directories(/usr/include/x86_64-linux-gnu)
+    include_directories(/opt/tensorrt/include)
     include_directories(${CUDA_INCLUDE_DIRS})
     set(ALL_LIB ${ALL_LIB} ${CUDA_LIBRARIES} nvinfer nvinfer_plugin nvparsers)
 elseif (USE_CAFFE)

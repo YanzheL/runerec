@@ -25,19 +25,20 @@ class AllModelFixture : public ::testing::Test {
   static void SetUpTestCase() {
     tf_clsf = CachedFactory::getInstance<LocalTFDigitClassifier>("../../../models/mnist/model.pb");
     led_clsf = CachedFactory::getInstance<LocalTFDigitClassifier>("../../../models/led/model.pb");
-    cf_clsf = CachedFactory::getInstance<LocalCaffeDigitClassifier>("../../../models/caffe");
+    rt_clsf = CachedFactory::getInstance<LocalTensorRTDigitClassifier>("../../../models/mnist/model.uff");
+//    cf_clsf = CachedFactory::getInstance<LocalCaffeDigitClassifier>("../../../models/caffe");
   }
 
   static void TearDownTestCase() {
 
   }
 
-  static std::shared_ptr<DigitClassifier> tf_clsf, cf_clsf, led_clsf;
+  static std::shared_ptr<DigitClassifier> tf_clsf, rt_clsf, led_clsf;
 
 };
 
 std::shared_ptr<DigitClassifier>AllModelFixture::tf_clsf;
-std::shared_ptr<DigitClassifier>AllModelFixture::cf_clsf;
+std::shared_ptr<DigitClassifier>AllModelFixture::rt_clsf;
 std::shared_ptr<DigitClassifier>AllModelFixture::led_clsf;
 
 namespace fs = boost::filesystem;
@@ -60,7 +61,7 @@ TEST_F(AllModelFixture, F_Img) {
   EXPECT_THAT(answers, ::testing::ElementsAreArray(res));
 }
 
-TEST_F(AllModelFixture, F_Img_Caffe) {
+TEST_F(AllModelFixture, F_Img_RT) {
   string dir = "../../tests/data/fire_digits";
   vector<Mat> imgs;
   vector<int> answers;
@@ -74,10 +75,29 @@ TEST_F(AllModelFixture, F_Img_Caffe) {
     imgs.push_back(frame);
     answers.push_back(answer);
   }
-  AllModelFixture::cf_clsf->recognize(imgs, res);
+  AllModelFixture::rt_clsf->recognize(imgs, res);
   EXPECT_GE(accuracy(res, answers), 0.5);
 //  EXPECT_THAT(answers, ::testing::ElementsAreArray(res));
 }
+
+//TEST_F(AllModelFixture, F_Img_Caffe) {
+//  string dir = "../../tests/data/fire_digits";
+//  vector<Mat> imgs;
+//  vector<int> answers;
+//  int res[9];
+//  for (auto &p : fs::directory_iterator(dir)) {
+//    string path = p.path().string();
+//    int answer = *(path.rbegin() + 4) - '0';
+//    Mat frame;
+//    frame = imread(path, 0);
+//    threshold(frame, frame, 127, 1, THRESH_BINARY_INV);
+//    imgs.push_back(frame);
+//    answers.push_back(answer);
+//  }
+//  AllModelFixture::cf_clsf->recognize(imgs, res);
+//  EXPECT_GE(accuracy(res, answers), 0.5);
+////  EXPECT_THAT(answers, ::testing::ElementsAreArray(res));
+//}
 
 TEST_F(AllModelFixture, LED_Img) {
   string dir = "../../tests/data/led_digits";

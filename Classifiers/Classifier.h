@@ -8,7 +8,9 @@
 #include "LocalOpenCVDnnDigitClassifier.h"
 
 #ifdef USE_CUDA
+
 #include "LocalTensorRTDigitClassifier.h"
+
 #endif
 #ifdef USE_CAFFE
 #include "LocalCaffeDigitClassifier.h"

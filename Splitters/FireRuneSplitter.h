@@ -6,7 +6,7 @@
 #define RUNEREC_FIRERUNESPLITTER_H
 
 #include "RuneSplitter.h"
-
+#include <Eigen/Dense>
 namespace runerec {
 class FireRuneSplitter : public RuneSplitter {
  public:

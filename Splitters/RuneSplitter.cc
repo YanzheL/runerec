@@ -3,6 +3,9 @@
 //
 
 #include "RuneSplitter.h"
+#include <opencv2/cudaimgproc.hpp>
+#include <opencv2/cudafilters.hpp>
+#include "../Utils.h"
 
 using namespace std;
 using namespace cv;

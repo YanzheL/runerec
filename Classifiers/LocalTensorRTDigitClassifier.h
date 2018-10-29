@@ -6,11 +6,6 @@
 #define RUNEREC_LOCALTENSORRTDIGITCLASSIFIER_H
 
 #include "Classifier_Internal.h"
-#include <algorithm>
-#include "cuda_runtime_api.h"
-#include <sys/stat.h>
-#include <unordered_map>
-#include <cassert>
 #include "NvInfer.h"
 #include "NvUffParser.h"
 #include "NvUtils.h"
@@ -30,7 +25,7 @@ static Logger gLogger;
 
 class LocalTensorRTDigitClassifier : public DigitClassifier {
  public:
-  explicit LocalTensorRTDigitClassifier(const string &modelDir);
+  explicit LocalTensorRTDigitClassifier(const std::string &modelDir);
 
   ~LocalTensorRTDigitClassifier() override;
 
@@ -54,6 +49,7 @@ class LocalTensorRTDigitClassifier : public DigitClassifier {
       case nvinfer1::DataType::kFLOAT:return 4;
       case nvinfer1::DataType::kHALF:return 2;
       case nvinfer1::DataType::kINT8:return 1;
+      default:;
     }
     return 0;
   }

@@ -5,28 +5,8 @@
 #ifndef RUNEREC_RUNESPLITER_H
 #define RUNEREC_RUNESPLITER_H
 
-#include <opencv2/core.hpp>
-#include <opencv2/highgui.hpp>
-#include <opencv2/core.hpp>
-#include <vector>
-#include <iostream>
-#include <cmath>
-#include <utility>
 #include <string>
-
-#ifdef USE_EIGEN
-#include <Eigen/Core>
-#include <Eigen/Dense>
-#endif
-
 #include <opencv2/core/cuda.hpp>
-#include <opencv2/cudaimgproc.hpp>
-#include <opencv2/imgproc.hpp>
-#include <opencv2/opencv.hpp>
-#include <stdlib.h>
-#include <stdio.h>
-#include "../Utils.h"
-#include <sstream>
 
 #define WIDTH 1140
 #define HEIGHT 710
