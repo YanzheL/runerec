@@ -27,7 +27,7 @@ void FireRuneSplitter::split(const cv::cuda::GpuMat &frame, std::vector<cv::cuda
   vector<vector<Point2i>> contours;
 //    getContours(src,dst,contours);
   if (frame.channels() != 1)
-    cuda::cvtColor(src, src, CV_BGR2GRAY);
+    cuda::cvtColor(src, src, COLOR_BGR2GRAY);
   {
 //        cuda::threshold(src, dst, 127, 255, THRESH_BINARY);
     cpuThreshold(src, dst, 127, 255, THRESH_OTSU);
@@ -40,7 +40,7 @@ void FireRuneSplitter::split(const cv::cuda::GpuMat &frame, std::vector<cv::cuda
     vector<Vec4i> hierarchy;
     Mat dld_dst;
     dilate_binary.download(dld_dst);
-    findContours(dld_dst, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);//只检测最外测轮廓
+    findContours(dld_dst, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_NONE);//只检测最外测轮廓
   }
   checkSudoku(contours, roi_rects);
 //    double parameter_1 = 70;

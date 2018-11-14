@@ -34,7 +34,7 @@ RuneSplitter::getContours(const cv::cuda::GpuMat &src, cv::cuda::GpuMat &erode_b
                           std::vector<std::vector<cv::Point2i>> &contours) {
   src.copyTo(erode_binary);
   if (erode_binary.channels() != 1) {
-    cuda::cvtColor(erode_binary, erode_binary, CV_BGR2GRAY);//单通道
+    cuda::cvtColor(erode_binary, erode_binary, COLOR_BGR2GRAY);//单通道
   }
 //    cuda::threshold(erode_binary, erode_binary, 127, 255, THRESH_BINARY);
   cpuThreshold(erode_binary, erode_binary, 127, 255, THRESH_OTSU);
@@ -50,7 +50,7 @@ RuneSplitter::getContours(const cv::cuda::GpuMat &src, cv::cuda::GpuMat &erode_b
   vector<Vec4i> hierarchy;
   Mat dld_dst;
   dilate_binary.download(dld_dst);
-  findContours(dld_dst, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+  findContours(dld_dst, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_NONE);
 }
 
 void RuneSplitter::split(const cv::cuda::GpuMat &frame, std::vector<cv::cuda::GpuMat> &roi,
