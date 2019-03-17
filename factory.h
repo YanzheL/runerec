@@ -33,7 +33,7 @@ class CachedFactory {
 
  private:
   static std::mutex m;
-  static std::map<unsigned long, std::any> instances;
+  static std::unordered_map<unsigned long, std::any> instances;
 
   template<class T, typename ...Arg>
   static std::shared_ptr<T> getInstance(unsigned long id, Arg &&... param1) {
