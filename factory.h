@@ -11,6 +11,7 @@
 #include <any>
 #include <tuple>
 #include <mutex>
+#include <unordered_map>
 #include "Utils.h"
 
 namespace runerec {
