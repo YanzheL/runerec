@@ -50,6 +50,7 @@ int main() {
 #include "Classifiers/Classifier.h"
 #include <boost/filesystem.hpp>
 #include "factory.h"
+#include "Utils.h"
 
 using namespace cv;
 using namespace std;

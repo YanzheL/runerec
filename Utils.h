@@ -87,20 +87,6 @@ inline void drawRects(cv::Mat &frame, const std::vector<cv::RotatedRect> &rects)
   }
 }
 
-template<std::size_t I = 0, typename FuncT, typename... Tp>
-inline typename std::enable_if<I == sizeof...(Tp), void>::type
-for_each_in_tuple(std::tuple<Tp...> &, FuncT) // Unused arguments are given no names.
-{
-
-}
-
-template<std::size_t I = 0, typename FuncT, typename... Tp>
-inline typename std::enable_if<I < sizeof...(Tp), void>::type
-for_each_in_tuple(std::tuple<Tp...> &t, FuncT f) {
-  f(std::get<I>(t));
-  for_each_in_tuple<I + 1, FuncT, Tp...>(t, f);
-}
-
 constexpr inline double accuracy(const int res[], const std::vector<int> &answer) {
   double t = 0;
   double s = answer.size();
