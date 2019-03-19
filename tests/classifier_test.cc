@@ -13,6 +13,7 @@
 #include "gmock/gmock.h"
 #include "../Classifiers/Classifier.h"
 #include "../factory.h"
+#include "../Utils.h"
 
 using namespace cv;
 using namespace std;
