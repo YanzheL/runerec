@@ -2,6 +2,8 @@
 
 Runerec (Rune Recognizer) is a hand-written digit recognizer backend used by HIT-HERO team for [RoboMaster Robotics Competition](https://www.robomaster.com/) in 2018.
 
+**This is a demo program. Full recognizer module is not open source.**
+
 ## Getting Started
 
 ### Prerequisites
